@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+$a="39";
+$b="412";
+echo "The digit sum of 39: ".digit_sum($a);
+echo "<br \>";
+echo "The digit sum of 412: ".digit_sum($b);
+function digit_sum($n){
+	$length=strlen($n);
+    $Sum="";
+    for($i=0; $i<=$length-1; $i++){
+		$Sum+=$n[$i];
+	}
+    return $Sum;
+}
+?>
+</body>
+</html>
