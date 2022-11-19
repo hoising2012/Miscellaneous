@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+$A=137;
+echo "The repeat of A: ".repeat($A);
+echo "<br \>";
+$ps=gmp_perfect_square(repeat($A));
+if($ps==1){
+	echo "The repeat of A is a perfect square.";
+}else{
+	echo "The repeat of A is not a perfect square.";
+}
+function repeat($N){
+$length=strlen($N);
+$ten=1;
+	for($i=1; $i<=$length; $i++){
+		$ten = 10*$ten; 
+	}
+	$result = $ten*$N + $N;
+    return $result;
+}
+?>
+</body>
+</html>
