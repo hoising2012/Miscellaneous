@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.hidden { 
+  display: none;
+}
+a { 
+  pointer-events: none; 
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: #2196F3;	
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: outset;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>Capture Flags</h1>
+<div class="grid-container">
+  <div class="grid-item" id="1" >
+   <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+  </div>
+  <div class="grid-item" id="2" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+  </div>
+  <div class="grid-item" id="3" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div>  
+  <div class="grid-item" id="4" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div>
+  <div class="grid-item" id="5" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div>
+  <div class="grid-item" id="6" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div>  
+  <div class="grid-item" id="7" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div>
+  <div class="grid-item" id="8" >
+  <a target="_blank" href="Flag.jpg" class="hidden">
+    <img src="Flag.jpg" width="30" height="30">
+  </a>
+</div> 
+</div>
+<button>Reset</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#1").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#2").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#3").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#4").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#5").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#6").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#7").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("#8").click(function(){
+		$(this).children().css('display', "inline");
+ 	});
+	$("button").click(function(){
+		$("#1 a").css('display', "none");
+		$("#2 a").css('display', "none");
+		$("#3 a").css('display', "none");
+		$("#4 a").css('display', "none");
+		$("#5 a").css('display', "none");
+		$("#6 a").css('display', "none");
+		$("#7 a").css('display', "none");
+		$("#8 a").css('display', "none");
+	});
+});
+</script>
+</body>
+</html>
