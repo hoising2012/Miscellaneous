@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+echo "The prime numbers are 1 mod 4 :";
+echo "<br \>";
+echo prime_number(1,1);
+echo " ";
+echo prime_number(2,1);
+echo " ";
+echo prime_number(3,2);
+echo " ";
+echo prime_number(4,1);
+echo " ";
+echo prime_number(5,2);
+echo "<br \>";
+echo "The prime numbers are 1 mod 3 :";
+echo "<br \>";
+echo prime_number_1(2,3);
+echo " ";
+echo prime_number_1(3,4);
+function prime_number($a,$b){
+	$A=$a*$a;
+    $B=$b*$b;
+	$result=$A+$B;
+	return $result;
+}
+function prime_number_1($a,$b){
+	$A=$a*$a;
+    $B=$b*$b;
+    $C=$a*$b;
+	$result=$A+$B-$C;
+	return $result;
+}
+?>
+</body>
+</html>
