@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Five hours count down</h1>
+<button onclick="startCount()">Start count!</button>
+<input type="text" id="demo">
+<button onclick="stopCount()">Stop count!</button>
+<script>
+let counter = 0;
+let timeout;
+let timer_on = 0;
+let seconds = 5*60*60;
+function timedCount() {
+    var x = seconds - counter;
+    var s = x%60;
+    var m = Math.floor(x/60)%60;
+    var h = Math.floor(x/(60*60))%12;
+   	if(s<10){
+    	s = "0"+s;
+    }
+    if(m<10){
+    	m = "0"+m;
+    }
+    if(h<10){
+    	h = "0"+h;
+    }
+ 	var str = h + ":" + m + ":" + s;
+ 	document.getElementById("demo").value = str;
+    counter++;
+    timeout = setTimeout(timedCount, 1000);
+}
+function startCount() {
+  if (!timer_on) {
+    timer_on = 1;
+    timedCount();
+  }
+}
+function stopCount() {
+  clearTimeout(timeout);
+  timer_on = 0;
+}
+</script>
+</body>
+</html>
