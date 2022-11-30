@@ -39,7 +39,7 @@ function Sum_to_n($n){
 function condition($n){
 	$result = 8*pow($n,2)+8*$n+1;
     $g = gmp_perfect_square($result);
-	$condition;
+	$condition="";
     if($g==1){
     	$condition = "Co-balancing";
     }else{
