@@ -28,6 +28,10 @@ function timedCount() {
  	document.getElementById("demo").value = str;
     counter++;
     timeout = setTimeout(timedCount, 1000);
+    if (x < 0) {
+    clearTimeout(timeout);
+    document.getElementById("demo").value = "EXPIRED";
+    }
 }
 function startCount() {
   if (!timer_on) {
