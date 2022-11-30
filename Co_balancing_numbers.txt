@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+$A=Sum_to_n(2);
+echo "The sum of 1-2 is ".$A;
+echo "; r = ".Sum_to_n_plus_r(2,$A);
+echo "<br \>";
+$B=Sum_to_n(14);
+echo "The sum of 1-14 is ".$B;
+echo "; r = ".Sum_to_n_plus_r(14,$B);
+echo "<br \>";
+$C=Sum_to_n(84);
+echo "The sum of 1-84 is ".$C;
+echo "; r = ".Sum_to_n_plus_r(84,$C);
+echo "<br \>";
+function Sum_to_n_plus_r($n,$m){
+		$Sum="";
+        $r=1;
+        do{
+        	$F = $n+$r;
+        	$Sum += $F;
+            $r++;
+        }while($Sum<$m);
+		return $r-1;
+}
+function Sum_to_n($n){
+	$Sum = (($n+1)*$n)/2;
+    return $Sum;
+}
+?>
+</body>
+</html>
