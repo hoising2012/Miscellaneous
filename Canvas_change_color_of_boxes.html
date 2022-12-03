@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="400" height="200" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<script>
+class Shape {
+  constructor(name, x, y) {
+    this.obj = {name, x, y}
+    this.path = new Path2D();
+    this.path.rect(x, y, 50, 50);
+  }
+  draw(ctx, pos) {
+    ctx.beginPath();
+    ctx.fillStyle = ctx.isPointInPath(this.path, pos.x, pos.y)? "red": "tan"
+    ctx.fill(this.path);
+    ctx.strokeText(this.obj.name, this.obj.x +10, this.obj.y +20)	
+  }
+}
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
+}
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+shapes = []
+shapes.push(new Shape("A", 10, 10))
+shapes.push(new Shape("B", 80, 10))
+shapes.push(new Shape("C", 150, 10))
+canvas.addEventListener('mousemove', function(evt) {
+  shapes.forEach(s => { s.draw(ctx, getMousePos(canvas, evt)) })
+}, false);
+shapes.forEach(s => { s.draw(ctx, { x: 0, y: 0}) })
+</script> 
+</body>
+</html>
