@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+try{
+    $t = time();
+    echo "The time lower limit: ".$t;
+    echo "<br >";
+    $counter=0;
+    while (true) { 
+        $time_spent = $t - $counter;
+        	if($time_spent==0){
+            throw new Exception('Time lower limit reached.');
+            }else{
+            throw new Exception('Time does not reach the lower limit.');
+            }
+        $counter++;
+    }
+} catch(Exception $e) {
+    echo 'Message: ' .$e->getMessage();
+}
+?>
+</body>
+</html>
