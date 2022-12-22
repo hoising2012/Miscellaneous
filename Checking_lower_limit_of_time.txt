@@ -22,7 +22,6 @@ try{
             }else{
             throw new Exception('Time does not reach the lower limit.');
             }
-        $counter++;
     }
 } catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();
