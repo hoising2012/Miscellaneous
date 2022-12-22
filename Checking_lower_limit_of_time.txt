@@ -2,11 +2,19 @@
 <html>
 <body>
 <?php
+function time_sublimit($k = 0.8) {
+    $limit = ini_get('max_execution_time'); 
+    $sub_limit = round($limit * $k);
+    if($sub_limit === 0) {
+        $sub_limit = INF;
+    }
+    return $sub_limit;
+}
 try{
     $t = time();
     echo "The time lower limit: ".$t;
     echo "<br >";
-    $counter=0;
+    $counter >= time_sublimit();
     while (true) { 
         $time_spent = $t - $counter;
         	if($time_spent==0){
