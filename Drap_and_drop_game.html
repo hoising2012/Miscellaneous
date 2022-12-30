@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+p{
+	text-align: center
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.box {
+  float: left;
+  width: 100px;
+  height: 35px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+$("document").ready(function() {
+	$(".drag1").draggable({
+        revert: true
+  });
+  $(".box").droppable({
+    accept: '.drag1',
+    drop: function(event, ui) {
+	var id = ui.draggable.parent().attr("id");
+      $(this).append($(ui.draggable));
+      var elemvalue = $(this).children("p").text();
+	$(this).children("p").html("");
+	var selector = "#"+id;
+	$(selector+" p").html(elemvalue);
+    }
+  });
+});
+</script>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the div elements.</p>
+<div class="container">
+<div class="row">
+<div class="box" id="1" >
+  
+  <p>1</p>
+</div>
+
+<div class="box" id="2" >
+  <p>2</p>
+</div>
+
+<div class="box" id="3" >
+  <p>3</p>
+</div>
+
+<div class="box" id="4" >
+  <p>4</p>
+</div>
+</div>
+<div class="row">
+<div class="box" id="5" >
+  
+  <p>5</p>
+</div>
+
+<div class="box" id="6" >
+  <p>6</p>
+</div>
+
+<div class="box" id="7" >
+  <p>7</p>
+</div>
+
+<div class="box" id="8" >
+  <p>8</p>
+</div>
+</div>
+<div class="row">
+<div class="box" id="9" >
+  
+  <p>9</p>
+</div>
+
+<div class="box" id="10" >
+  <p>10</p>
+</div>
+
+<div class="box" id="11" >
+  <p>11</p>
+</div>
+
+<div class="box" id="12" >
+  <p>12</p>
+</div>
+</div>
+<div class="row">
+<div class="box" id="13" >
+  
+  <p>13</p>
+</div>
+
+<div class="box" id="14" >
+  <p>14</p>
+</div>
+
+<div class="box" id="15" >
+  <p>15</p>
+</div>
+
+<div class="box" id="16" >
+	<img src="Flag.jpg"  class="drag1" width="88" height="31">
+  <p></p>
+</div>
+</div>
+</div>
+</body>
+</html>
