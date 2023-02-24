@@ -6,6 +6,7 @@
 <button onclick="startCount()">Start count!</button>
 <input type="text" id="demo">
 <button onclick="stopCount()">Stop count!</button>
+<button onclick="Resume()">Resume!</button>
 <br \>
 <select id="hours">
   <option value="0">00</option>
@@ -163,6 +164,12 @@ let counter = 0;
 let timeout;
 let timer_on = 0;
 var w;
+function Resume(){
+     if (!timer_on) {   
+         timer_on = 1;    
+         timedCount();  
+         }
+}
 function timedCount() {
    var h = Math.floor(w/3600);
    var m = Math.floor((w%3600)/60);
