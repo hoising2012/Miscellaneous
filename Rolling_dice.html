@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.shakedice {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+div.container {
+  position: relative;
+  width: 350px;
+  height: 275px;
+  margin: auto;
+  border: 3px solid #73AD21;
+}
+div.img_1{
+	position: absolute;
+  	top: 40px;
+  	right: 125px;
+}
+div.img_2{
+	position: absolute;
+  	top: 140px;
+  	right: 75px;
+}
+div.img_3{
+	position: absolute;
+  	top: 140px;
+  	left: 75px;
+}
+button{
+    position:absolute;
+    top: 40%;
+    right:50%;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+</style>
+</head>
+<body>
+<p>Roll the dice</p>
+<div class="container">
+<div class="img_1">
+<img id="dice_one" src="dice1.png" alt="dice" width="100" height="100">
+</div>
+<div class="img_2">
+<img id="dice_two" src="dice1.png" alt="dice" width="100" height="100">
+</div>
+<div class="img_3">
+<img id="dice_three" src="dice1.png" alt="dice" width="100" height="100">
+</div>
+</div>
+<button type="button" onclick="Roll()">Roll!</button>
+<script>
+var init = 0;
+function RandomNumber(){
+	let N = Math.floor(Math.random() * 6) + 1
+	return N;
+}
+function Random_dice(){
+	let M1 = RandomNumber();	
+	let M2 = RandomNumber();
+	let M3 = RandomNumber();
+	document.querySelector("#dice_one").src = `dice${M1}.png `;
+	document.querySelector("#dice_two").src = `dice${M2}.png `;
+	document.querySelector("#dice_three").src = `dice${M3}.png `;
+}
+function Shake_add(){
+	document.querySelector("#dice_one").classList.add('shakedice');
+	document.querySelector("#dice_two").classList.add('shakedice');
+	document.querySelector("#dice_three").classList.add('shakedice');
+}
+function Shake_remove(){
+	document.querySelector("#dice_one").classList.remove('shakedice');
+	document.querySelector("#dice_two").classList.remove('shakedice');
+	document.querySelector("#dice_three").classList.remove('shakedice');
+}
+if(init == 0){
+	Random_dice();
+	init++;
+}
+function Roll(){ 
+	setTimeout(function () {
+        Shake_add();
+    	}, 1000);
+	setTimeout(function () {
+        Shake_remove();
+        Random_dice();		
+    	}, 1400);		
+}
+</script> 
+</body>
+</html>
