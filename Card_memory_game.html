@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+.disable{
+pointer-events: none;
+}
+.flip-card:after {
+   content: " ";
+   display: table;
+   clear: both;
+}
+@media screen and (max-width: 600px) {
+  .flip-card-inner {
+    width: 100%;
+  }
+}
+.flip-card {
+  background-color: transparent;
+  width: 600px;
+  height: 300px;
+  perspective: 1000px; 
+  
+}
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 150px;
+}
+.flip-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-card-front {
+   color: white;
+	background-color: #2980b9;
+}
+.flip-card-back{
+  transform: rotateY(-180deg);
+}
+</style>
+</head>
+<body>
+<h1>Card Memory Game</h1>
+<div style="display: flex;">
+<p>Cards matched:&nbsp</p> 
+<p id="demo"></p>
+</div>
+<div class="flip-card">
+  <div class="flip-card-inner" id="1">
+     <div class="flip-card-front" >
+      <h1>Animals</h1>
+     </div>
+	<div class="flip-card-back" >
+      <img src="animals1.jpg"   alt="Avatar" style="width:150px;height:150px;">
+   	</div>
+   </div>
+   <div class="flip-card-inner" id="2">
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back"  >
+      <img src="animals2.jpg"  alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+   <div class="flip-card-inner" id="3">
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back"   >
+      <img src="animals3.jpg"  alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+   <div class="flip-card-inner" id="4" >
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back" >
+      <img src="animals4.jpg"  alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+  <div class="flip-card-inner" id="5" >
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back" >
+      <img src="animals1.jpg"  alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+   <div class="flip-card-inner" id="6" >
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back"  >
+      <img src="animals2.jpg" alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+   <div class="flip-card-inner" id="7" >
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back" >
+      <img src="animals3.jpg"  alt="Avatar" style="width:150px;height:150px;">
+    </div>
+  </div>
+   <div class="flip-card-inner" id="8">
+	  <div class="flip-card-front">
+      <h1>Animals</h1>
+    </div>
+    <div class="flip-card-back"  >
+      <img src="animals4.jpg" alt="Avatar"  style="width:150px;height:150px;">
+    </div>
+  </div>
+</div>
+<br \>
+<br \>
+<button type="reset" onclick="document.location.reload()">RESET</button>
+<script>
+const cards = document.querySelectorAll(".flip-card-inner");
+let cardOneImg, cardTwoImg;
+let cardOne, cardTwo;
+var E1, E2;
+var count = true;
+var A = true;
+matching = 0;
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+function AssignCard(){
+	var arr = [1,2,3,4,1,2,3,4];
+	shuffle(arr);
+	 var allImages = document.getElementsByTagName('img');
+   	 for(var i = 0; i < allImages.length ; i++) {
+  		allImages[i].src =  `animals${arr[i]}.jpg`;
+		}
+}
+function flipCard() {	
+		
+		
+		this.classList.toggle('is-flipped');
+		
+	
+	
+}
+function Show(){
+	
+	if(count==false){
+	cardTwo = this.id;
+	cardTwoImg = this.querySelector("img").getAttribute("src");
+	E2 = document.getElementById(cardTwo);
+	A = false;
+	}
+	if(count == true){
+	cardOne = this.id;
+	cardOneImg = this.querySelector("img").getAttribute("src");
+	E1 = document.getElementById(cardOne);
+	count = false;
+	
+	}
+	
+	if(cardOneImg===cardTwoImg){
+	E1.className += ' disable';
+	E2.className += ' disable';
+	count = true;
+	A = true;
+	matching += 2;
+	cardOne = cardTwo = null;
+		cardOneImg = cardTwoImg = null;
+		E1 = E2 = null;
+	}else if((cardOneImg!==cardTwoImg)&&(A==false)){
+		setTimeout(function () {
+        	E1.classList.remove('is-flipped');
+		E2.classList.remove('is-flipped');
+		cardOne = cardTwo = null;
+		cardOneImg = cardTwoImg = null;
+		E1 = E2 = null;
+		count = true;
+		A = true;
+    		}, 1400);
+	}
+	document.getElementById('demo').innerHTML = matching;
+	console.log(cardOne,cardTwo);
+	console.log(cardOneImg,cardTwoImg);
+	console.log(E1,E2);
+}
+
+AssignCard();
+cards.forEach((card) =>card.addEventListener("click", flipCard));
+cards.forEach((card) =>card.addEventListener("click", Show));
+</script> 
+</body>
+</html>
