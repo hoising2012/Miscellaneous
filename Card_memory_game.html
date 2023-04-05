@@ -167,13 +167,8 @@ function AssignCard(){
   		allImages[i].src =  `animals${arr[i]}.jpg`;
 		}
 }
-function flipCard() {	
-		
-		
-		this.classList.toggle('is-flipped');
-		
-	
-	
+function flipCard() {		
+	this.classList.toggle('is-flipped');
 }
 function Show(){
 	
@@ -188,9 +183,7 @@ function Show(){
 	cardOneImg = this.querySelector("img").getAttribute("src");
 	E1 = document.getElementById(cardOne);
 	count = false;
-	
 	}
-	
 	if(cardOneImg===cardTwoImg){
 	E1.className += ' disable';
 	E2.className += ' disable';
@@ -216,7 +209,6 @@ function Show(){
 	console.log(cardOneImg,cardTwoImg);
 	console.log(E1,E2);
 }
-
 AssignCard();
 cards.forEach((card) =>card.addEventListener("click", flipCard));
 cards.forEach((card) =>card.addEventListener("click", Show));
