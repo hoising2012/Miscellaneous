@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+$leading_coefficient = 3;
+$power_index = 9;
+echo "To differentiate the following functions: ";
+echo "<br \>";
+for($i=0; $i<=$power_index; $i++){
+		$new_power_index = $power_index - $i;
+		$new_coefficient = $leading_coefficient * $new_power_index;
+        if($i!=$power_index){
+		echo $leading_coefficient."x^".$new_power_index;
+        echo "<br \>";
+        }else{
+        echo "After differentiate n times, here we got the final coefficient N_0: ".$leading_coefficient;
+        }
+		$leading_coefficient = $new_coefficient;
+}
+?>
+</body>
+</html>
