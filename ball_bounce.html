@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="500" height="300" style="border:3px solid #2E86C1;"></canvas>
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var x = c.width/2;
+var y = c.height/2;
+var radius = 40;
+ctx.beginPath();
+ctx.arc(x,y,radius,0,2*Math.PI);
+ctx.fillStyle = "red";
+ctx.fill();
+var dx = 1;
+var dy = -1;
+setInterval(rebounce, 10);
+function rebounce(){
+	ctx.clearRect(0, 0, c.width, c.height);
+    draw();
+	if( x + dx + radius > c.width || x + dx - radius < 0 ){
+    	dx = -dx;
+    }
+	if( y + dy + radius > c.height || y + dy - radius < 0 ){
+    	dy = -dy;
+    }
+		x += dx;
+		y += dy;
+}
+function draw(){
+	ctx.beginPath();
+	ctx.arc(x,y,radius,0,2*Math.PI);
+	ctx.fillStyle = "red";
+	ctx.fill();
+}
+</script> 
+</body>
+</html>
