@@ -17,7 +17,7 @@ var dy = -1;
 setInterval(rebounce, 10);
 function rebounce(){
 	ctx.clearRect(0, 0, c.width, c.height);
-    draw();
+    	draw();
 	if( x + dx + radius > c.width || x + dx - radius < 0 ){
     	dx = -dx;
     }
