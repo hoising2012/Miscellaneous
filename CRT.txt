@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+list($x, $y) = CRT(3,2,5,3,7,2);
+echo "To illustrate the Chinese Remainder theorem: <br />";
+echo "x ≡ 2 (mod 3) ≡ 3 (mod 5) ≡ 2 (mod 7) <br />";
+echo "The solution is: ".$x." + ".$y." * k";
+function CRT($A,$a,$B,$b,$C,$c){
+		$n = 1;
+        while(true){
+        	$F = $A*$n + $a;
+            $P = $F - $b;
+            $Q = $F - $c;
+        	if(( $P%$B==0 )&&( $Q%$C==0 )){
+            	$R = $F;
+                $M = $A*$B*$C;
+                return array($R, $M);
+            }
+            $n++;
+        }
+}
+?>
+</body>
+</html>
