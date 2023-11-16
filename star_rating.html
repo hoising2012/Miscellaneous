@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+  color: orange;
+}
+.disable { 
+  pointer-events: none; 
+}
+</style>
+</head>
+<body>
+<h2>Star Rating</h2>
+<span class="fa fa-star" id="star_1"></span>
+<span class="fa fa-star" id="star_2"></span>
+<span class="fa fa-star" id="star_3"></span>
+<span class="fa fa-star" id="star_4"></span>
+<span class="fa fa-star" id="star_5"></span>
+<br \>
+<br \>
+<button id="Reset">Reset</button>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#star_1").click(function(){
+    	 $(this).addClass('checked');
+         	$('#star_2').addClass('disable');
+   				$('#star_3').addClass('disable');
+   					$('#star_4').addClass('disable');
+                		$('#star_5').addClass('disable');
+	});
+	$("#star_2").click(function(){
+    	$('#star_1').addClass('checked');
+    	 	$(this).addClass('checked');
+         		$('#star_3').addClass('disable');
+   					$('#star_4').addClass('disable');
+   						$('#star_5').addClass('disable');
+	});
+	$("#star_3").click(function(){
+    	$('#star_1').addClass('checked');
+        	$('#star_2').addClass('checked');
+    			 $(this).addClass('checked');
+                 	$('#star_4').addClass('disable');
+   						$('#star_5').addClass('disable');
+	});
+    $("#star_4").click(function(){
+   		$('#star_1').addClass('checked');
+   			$('#star_2').addClass('checked');
+   				$('#star_3').addClass('checked');
+ 		  			$(this).addClass('checked');
+                    	$('#star_5').addClass('disable');
+	});
+    $("#star_5").click(function(){
+    	$('#star_1').addClass('checked');
+   			$('#star_2').addClass('checked');
+   				$('#star_3').addClass('checked');
+                	$('#star_4').addClass('checked');
+    	 $(this).addClass('checked');
+	});
+    $('#Reset').click(function() {
+   		 location.reload();
+	});
+});
+</script>
+</body>
+</html>
