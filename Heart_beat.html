@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.heart {
+  display: inline-block;
+  width: 200px;
+  aspect-ratio: 1;
+  border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
+  clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+}
+.heart:hover {
+  display: inline-block;
+  width: 200px;
+  aspect-ratio: 1;
+  border-image: radial-gradient(red 69%, #0000 70%) 84.5%/50%;
+  clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+  animation: heartbeat 1s infinite;
+}
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+</style>
+</head>
+<body>
+<h1>Heart beat</h1>
+<div class="heart"></div>
+</body>
+</html>
