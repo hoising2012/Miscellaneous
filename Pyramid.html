@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.container {
+  display: inline-block;
+  position: relative;
+  width: 450px;
+  height: 375px;
+  margin: auto;
+}
+#pyramid_top {
+  position: absolute;
+  right: 125px;
+  top: 40px;
+  width: 0px;
+  border-left: 40px dotted transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 100px solid #C12E3E;
+}
+#pyramid_middle {
+  position: absolute;
+  top: 90px;
+  right: 105px;
+  width: 40px;
+  border-left: 40px dotted transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 100px solid #A9A9A9;
+}
+#pyramid_bottom {
+  position: absolute;
+  top: 140px;
+  right: 85px;
+  width: 80px;
+  border-left: 40px dotted transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 100px solid #C12E3E;
+}
+#pyramid_top:hover {
+  border-bottom: 100px solid yellow;
+}
+#pyramid_middle:hover {
+  border-bottom: 100px solid yellow;
+}
+#pyramid_bottom:hover {
+  border-bottom: 100px solid yellow;
+}
+</style>
+</head>
+<body>
+<h2>Pyramid</h2>
+<div class="container">
+<div id="pyramid_top"></div>
+<div id="pyramid_middle"></div>
+<div id="pyramid_bottom"></div>
+</div>
+</body>
+</html>
