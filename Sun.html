@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#sun {
+  --s:20px; /* length */
+  --o:10px; /* offset */
+  --w:6deg; /* thickness */
+  --n:8;    /* numbers*/
+  --c:yellow;/* color */
+  margin:calc(var(--s) + var(--o) + 10px);
+  display:inline-block;
+  border-radius:50%;
+  position:relative;
+  border-radius: 50%;	
+  height: 150px;
+  width: 150px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: radial-gradient(circle, red, orange, lightyellow);
+}
+#sun::before {
+  content:"";
+  position:absolute;
+  top:    calc(-1*var(--s) - var(--o));
+  bottom: calc(-1*var(--s) - var(--o));
+  left:   calc(-1*var(--s) - var(--o));
+  right:  calc(-1*var(--s) - var(--o));
+  border-radius:inherit;
+  background:repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg),transparent 								calc(var(--w)) calc(360deg/var(--n) - 2deg),var(--c) calc(360deg/var(--n)));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - var(--s)),#fff calc(100% - var(--s)));
+          mask:radial-gradient(farthest-side,transparent calc(100% - var(--s)),#fff calc(100% - var(--s)));
+}
+</style>
+</head>
+<body>
+<h1>Solar</h1>
+<div id="sun"></div>
+</body>
+</html>
