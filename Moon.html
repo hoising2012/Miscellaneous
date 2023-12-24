@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.container {
+	display:inline-block;
+    position:relative;
+    width:300px;
+  	height:200px;
+	margin:5px;
+    background-color:black;
+}
+.cloud {
+  position:absolute;
+  top: 25px;
+  right: 50px;	
+  width:200px;
+  height:150px;
+  border-radius: 0 0 50px 50px;
+  background:linear-gradient(60deg,white,grey);
+  -webkit-mask:
+  radial-gradient(35px 30px,blue 98%,transparent 100%) 20% 30%  /70px   60px,
+  radial-gradient(50px 45px,blue 98%,transparent 100%) 50% 50%  /100px  90px,
+  radial-gradient(50px     ,blue 98%,transparent 100%) 100% 100%/100px  100px,
+  radial-gradient(40px     ,blue 98%,transparent 100%) 0 100%   /80px   80px,
+  linear-gradient(blue,blue) bottom/100% 40px;
+  mask:
+  radial-gradient(35px 30px,blue 98%,transparent 100%) 20% 30%  /70px   60px,
+  radial-gradient(50px 45px,blue 98%,transparent 100%) 50% 50%  /100px  90px,
+  radial-gradient(50px     ,blue 98%,transparent 100%) 100% 100%/100px  100px,
+  radial-gradient(40px     ,blue 98%,transparent 100%) 0 100%   /80px   80px,
+  linear-gradient(blue,blue) bottom/100% 40px;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
+}
+#moon {  
+  top: 25px;
+  right: 115px;	
+  background-color:red;
+  position:absolute;
+  margin:auto;
+  background-color:transparent;
+  height:100px;
+  width:100px;
+  border-radius:50%;
+  box-shadow:50px 10px 0 0 orange;
+  z-index: 10;
+}
+</style>
+</head>
+<body>
+<h1>Moon</h1>
+<div class="container">
+<div id="moon"></div>
+<div class="cloud"></div>
+</div>
+</body>
+</html>
