@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container{
+	display: inline-block;
+    position: relative;
+}
+.wheel {
+    left: 300px;
+	top: 200px;
+	position: absolute;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: orbitall 10s linear infinite;
+    animation: orbitall 10s linear infinite; 
+}
+#Earth {
+	top: 80px;
+    left: 150px;
+	position: absolute;
+    border: 10px solid blue;
+    border-radius: 50%;
+	width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+}
+#Safari {
+	top: 80px;
+    right: 150px;
+	position: absolute;
+    border: 10px solid red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+}
+#Halui {
+    left: -30px;
+    bottom: 150px;
+	position: absolute;
+    border: 10px solid green;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    -webkit-animation: spin 10s linear infinite;
+    animation: spin 10s linear infinite;
+}
+@keyframes orbitall {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+</style>
+</head>
+<body>
+<h2>Black Three Stars</h2>
+<div class="container">
+<div class="wheel">
+<div class="loader" id="Earth">Earth</div>
+<div class="loader" id="Safari">Sun</div>
+<div class="loader" id="Halui">Moon</div>
+</div>
+</div>
+</body>
+</html>
