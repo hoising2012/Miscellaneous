@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<style>
+#clock {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+}
+#hours {
+  width: 7px;
+  height: 90px;
+  background: blue;
+  position: absolute;
+  top: 170px;
+  left: 250px;
+  transform-origin: bottom;
+}
+#minutes {
+  width: 5px;
+  height: 170px;
+  background: black;
+  position: absolute;
+  top: 90px;
+  left: 250px;
+  transform-origin: bottom;	
+}
+#seconds {
+  width: 3px;
+  height: 220px;
+  background: red;
+  position: absolute;
+  top: 40px;
+  left: 250px;
+  transform-origin: bottom;  
+}
+.tick {
+  background-color: black;
+  height: 20px;
+  width: 5px;
+  position: absolute;
+}
+.oneEleven {
+  /* ~6.7% */
+  top: 33.5px;
+}
+.twoTen {
+  /* 25% */
+  top: 125px;
+}
+.threeNine {
+  /* 50% */
+  top: 250px;
+}
+.fourEight {
+  /* 25% */
+  bottom: 125px;
+}
+.fiveSeven {
+  /* ~6.7% */
+  bottom: 33.5px;
+}
+#one {
+  right: 125px;
+  transform: rotate(30deg);
+}
+#two {
+  /* ~93.3% */
+  right: 33.5px;
+  transform: rotate(60deg);
+}
+#three {
+  right: 0px;
+  transform: rotate(90deg);
+}
+#four {
+  right: 33.5px;
+  transform: rotate(120deg);
+}
+#five {
+  right: 125px;
+  transform: rotate(150deg);
+}
+#six {
+  left: 250px;
+  bottom: 0px;
+}
+#seven {
+  left: 125px;
+  transform: rotate(-150deg);
+}
+#eight {
+  left: 33.5px;
+  transform: rotate(-120deg);
+}
+#nine {
+  left: 0px;
+  transform: rotate(-90deg);
+}
+#ten {
+  left: 33.5px;
+  transform: rotate(-60deg);
+}
+#eleven {
+  left: 125px;
+  transform: rotate(-30deg);
+}
+#twelve {
+  left: 250px;
+  top: 0px;
+}
+</style>
+<body>
+<div id="clock">
+        <div id="one" class="oneEleven tick"></div>
+        <div id="two" class="twoTen tick"></div>
+        <div id="three" class="threeNine tick"></div>
+        <div id="four" class="fourEight tick"></div>
+        <div id="five" class="fiveSeven tick"></div>
+        <div id="six" class="sixTwelve tick"></div>
+        <div id="seven" class="fiveSeven tick"></div>
+        <div id="eight" class="fourEight tick"></div>
+        <div id="nine" class="threeNine tick"></div>
+        <div id="ten" class="twoTen tick"></div>
+        <div id="eleven" class="oneEleven tick"></div>
+        <div id="twelve" class="sixTwelve tick"></div>
+	<div id="hours"></div>
+  	<div id="minutes"></div>
+  	<div id="seconds"></div>
+    </div>
+</body>
+<script>
+const secondHand = document.querySelector('#seconds');
+const minsHand = document.querySelector('#minutes');
+const hourHand = document.querySelector('#hours');
+function setDate() {
+   const now = new Date();
+   const seconds = now.getSeconds();
+   const secondsDegrees = ((seconds / 60) * 360);
+   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+   const mins = now.getMinutes();
+   const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6);
+   minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+   const hour = now.getHours();
+   const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30);
+   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+}
+setInterval(setDate, 1000);
+setDate();
+</script>
+</html>
