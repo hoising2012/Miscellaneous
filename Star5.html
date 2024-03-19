@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background-color: black;
+}
+.wrap {
+	width: 1000px;
+	height: 1000px;
+}
+.star {
+    display: block;
+    width: 900px;
+    height: 800px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: yellow;
+    animation: change_color 2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes change_color {
+    0%{background-color: red;}
+    25%{background-color: blue;}
+    50%{background-color: green;}
+    75%{background-color: coral;}
+    100%{background-color: purple;}
+ }
+</style>
+</head>
+<body>
+<h1 style="color:white;">Star5</h1>
+<div class="wrap">
+<div class="star"></div>
+</div>     
+</body>
+</html> 
