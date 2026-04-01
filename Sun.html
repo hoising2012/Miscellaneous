@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h1 {
+  padding-left: 20px;
+}
+.Sun {
+  position: relative;
+  width: 200px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  top: 0%; 
+  left: 0%;
+  transform: translate(-100%, -100%);
+}
+.clip {
+  width: 50px;
+  height: 30px;
+  background: #FFA500; /* Color for the triangle */
+  clip-path: polygon(50% 0, 100% 100%, 0 100%); /* Creates a basic triangle */
+  border-radius: 10px; /* Adjust origin for rotation around the flower center */
+  transform-origin: 0% 500%;
+  position: absolute;
+  top: 200px;
+  left: 500px;
+}
+.clip:nth-child(1) { transform: rotate(0deg) translate(0px, -25px); }
+.clip:nth-child(2) { transform: rotate(45deg) translate(0px, -25px); }
+.clip:nth-child(3) { transform: rotate(90deg) translate(0px, -25px); }
+.clip:nth-child(4) { transform: rotate(135deg) translate(0px, -25px); }
+.clip:nth-child(5) { transform: rotate(180deg) translate(0px, -25px); }
+.clip:nth-child(6) { transform: rotate(225deg) translate(0px, -25px); }
+.clip:nth-child(7) { transform: rotate(270deg) translate(0px, -25px); }
+.clip:nth-child(8) { transform: rotate(315deg) translate(0px, -25px); }
+.center {
+  width: 250px;
+  height: 250px;
+  background-color: #ffd700; /* Gold */
+  border-radius: 50%;
+  position: absolute;
+  top: 220px;
+  left: 375px;
+}
+</style>
+</head>
+<body>
+<h1>Sun</h1>
+    <div class="Sun">
+    <div class="clip clip-1"></div>
+    <div class="clip clip-2"></div>
+    <div class="clip clip-3"></div>
+    <div class="clip clip-4"></div>
+    <div class="clip clip-5"></div>
+    <div class="clip clip-6"></div>
+    <div class="clip clip-7"></div>
+    <div class="clip clip-8"></div>
+    <div class="center"></div>  
+    <div>  
+</body>
+</html>
